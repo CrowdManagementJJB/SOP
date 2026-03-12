@@ -1,13 +1,30 @@
 const app = document.getElementById('app');
 
-// Membuat elemen h1
-const heading = document.createElement('h1');
-heading.textContent = 'Welcome Home!';
+const boxData = [
+    "Data Ministry",
+    "Crowd",
+    "Usher",
+    "First Aid",
+    "Traffic",
+    "Security"
+];
 
-// Membuat elemen p
-const paragraph = document.createElement('p');
-paragraph.textContent = 'Website saya sudah online! (Dirender menggunakan JavaScript)';
+// Mengulang data untuk membuat elemen HTML secara otomatis
+boxData.forEach((text, index) => {
+    // Membuat elemen div
+    const box = document.createElement('div');
 
-// Memasukkan elemen ke dalam div dengan id "app"
-app.appendChild(heading);
-app.appendChild(paragraph);
+    // Memberikan class CSS 'box' untuk gaya (styling)
+    box.className = 'box';
+
+    // Memasukkan teks ke dalam kotak
+    box.textContent = text;
+
+    // Menambahkan interaksi saat kotak di klik
+    box.addEventListener('click', () => {
+        alert(`Anda baru saja menekan ${text}!`);
+    });
+
+    // Memasukkan kotak ke dalam wadah utama
+    app.appendChild(box);
+});
